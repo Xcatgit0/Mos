@@ -14,5 +14,5 @@ do
 end
 while true do
   local os = loadfile("/Mos.lua")
-  
+  os()
 end
