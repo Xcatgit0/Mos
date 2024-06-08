@@ -24,6 +24,7 @@ function Gui.drawButton(x, y, width, height, label, color, shadowButton)
     local labelX = x + math.floor((width - #label) / 2)
     local labelY = y + math.floor(height / 2)
     gpu.setForeground(0xFFFFFF)
+    gpu.setBackground(color)
     gpu.set(labelX, labelY, label)
     gpu.setForeground(0x000000)
 end
