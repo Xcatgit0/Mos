@@ -5,7 +5,7 @@ function tableToString(tbl)
 
     for key, value in pairs(tbl) do
         if not isFirst then
-            str = str .. ", \n"
+            str = str .. ",".."\n"
         end
 
         if type(key) == "number" then
