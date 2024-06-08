@@ -89,7 +89,7 @@ function config.readConfig(path)
 
         for i = 1, #result.keys do
             if result.keys[i] == key then
-                result.values[i] == value
+                result.values[i] = value
             end
         end
 
