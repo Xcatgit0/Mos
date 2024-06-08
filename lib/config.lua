@@ -101,3 +101,4 @@ function config.readConfig(path)
     end
     return result
 end
+return config
