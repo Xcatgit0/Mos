@@ -1,4 +1,35 @@
 local config = {}
+function tableToString(tbl)
+    local str = "{"
+    local isFirst = true
+
+    for key, value in pairs(tbl) do
+        if not isFirst then
+            str = str .. ", \n"
+        end
+
+        if type(key) == "number" then
+            str = str .. valueToString(value)
+        else
+            str = str .. key .. " = " .. valueToString(value)
+        end
+
+        isFirst = false
+    end
+
+    str = str .. "}"
+    return str
+end
+
+function valueToString(value)
+    if type(value) == "string" then
+        return '"' .. value .. '"'
+    elseif type(value) == "table" then
+        return tableToString(value)
+    else
+        return tostring(value)
+    end
+end
 function readFileToTable(filename)
     local file = io.open(filename, "r")
     if not file then
@@ -55,12 +86,18 @@ function config.readConfig(path)
     
     end
     function result.set(key, value)
+
         for i = 1, #result.keys do
             if result.keys[i] == key then
                 result.values[i] == value
             end
         end
 
+    end
+    function result.save(filename, content)
+        local file = io.open(filename, "w")
+        file:write(tableToString(content))
+        file:close()
     end
     return result
 end
