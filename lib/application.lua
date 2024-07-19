@@ -10,6 +10,8 @@ function application.create(name, sizeX, sizeY, x,y, LangPath)
     application.list[name].y = y
     application.list[name].sizeX = sizeX
     application.list[name].sizeY = sizeY
-    application.list[name].Data = {}
+    application.list[name].Data = {LangPath = LangPath}
 end
-return application
+function application.remove(name)
+  application.list[name] = nil
+end
