@@ -15,3 +15,4 @@ end
 function application.remove(name)
   application.list[name] = nil
 end
+return application
